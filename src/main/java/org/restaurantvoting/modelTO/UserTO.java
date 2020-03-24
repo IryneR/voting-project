@@ -1,20 +1,12 @@
-package org.restaurantvoting.repository;
+package org.restaurantvoting.modelTO;
 
 import javax.persistence.*;
 
-@Entity
-    @Table(name="users")
-    // This tells Hibernate to make a table out of this class
-    public class User {
-        @Id
-        @GeneratedValue(strategy=GenerationType.AUTO)
-        @Column(name="user_id")
+
+    public class UserTO {
+
         private Integer id;
-
-        @Column(name="user_name")
         private String name;
-
-        @Column(name="is_admin")
         private Boolean isAdmin;
 
     public Integer getId() {

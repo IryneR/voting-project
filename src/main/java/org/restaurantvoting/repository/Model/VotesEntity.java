@@ -1,4 +1,4 @@
-package org.restaurantvoting.repository;
+package org.restaurantvoting.repository.Model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 @Entity
     @Table(name="votes")
     // This tells Hibernate to make a table out of this class
-    public class Votes {
+    public class VotesEntity {
         @Id
         @GeneratedValue(strategy= GenerationType.AUTO)
         @Column(name="votes_id")
@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
-        private User userId;
+        private UserEntity userId;
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
         @Column(name="restaurant_id")
-        public Restaurants restaurantId;
+        public RestaurantsEntity restaurantId;
 
         @Column(name="votes_date")
         public LocalDateTime votesDate;
@@ -31,19 +31,19 @@ import java.time.LocalDateTime;
         this.votesId = votesId;
     }
 
-    public User getUserId() {
+    public UserEntity getUserId() {
         return userId;
     }
 
-    public void setUserId(User userId) {
+    public void setUserId(UserEntity userId) {
         this.userId = userId;
     }
 
-    public Restaurants getRestaurantId() {
+    public RestaurantsEntity getRestaurantId() {
         return restaurantId;
     }
 
-    public void setRestaurantId(Restaurants restaurantId) {
+    public void setRestaurantId(RestaurantsEntity restaurantId) {
         this.restaurantId = restaurantId;
     }
 

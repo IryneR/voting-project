@@ -1,4 +1,4 @@
-package org.restaurantvoting.repository;
+package org.restaurantvoting.repository.Model;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity
     @Table(name="menu")
 // This tells Hibernate to make a table out of this class
-    public class Menu {
+    public class MenuEntity {
         @Id
         @GeneratedValue(strategy= GenerationType.AUTO)
         @Column(name="menu_id")
@@ -18,16 +18,16 @@ import java.util.Set;
 
     @ManyToOne
     @JoinColumn(name="restaurant_id", nullable=false)
-        private Restaurants restaurantId;
+        private RestaurantsEntity restaurantId;
 
         @OneToMany(mappedBy="menu")
-        private Set<MenuItem> menuItems;
+        private Set<MenuItemEntity> menuItems;
 
-    public Set<MenuItem> getMenuItems() {
+    public Set<MenuItemEntity> getMenuItems() {
         return menuItems;
     }
 
-    public void setMenuItems(Set<MenuItem> menuItems) {
+    public void setMenuItems(Set<MenuItemEntity> menuItems) {
         this.menuItems = menuItems;
     }
 
@@ -47,11 +47,11 @@ import java.util.Set;
             this.menuName = menuName;
         }
 
-        public Restaurants getRestaurantId() {
+        public RestaurantsEntity getRestaurantId() {
             return restaurantId;
         }
 
-        public void setRestaurantId(Restaurants restaurantId) {
+        public void setRestaurantId(RestaurantsEntity restaurantId) {
             this.restaurantId = restaurantId;
         }
     }

@@ -1,18 +1,11 @@
-package org.restaurantvoting.repository;
+package org.restaurantvoting.modelTO;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
-@Entity
-@Table(name="restaurants")
-// This tells Hibernate to make a table out of this class
- public class Restaurants {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="restaurant_id")
+
+ public class RestaurantsTO {
+
     private Integer restaurantId;
-
-    @Column(name="restaurant_name")
     private String restaurantName;
 
     public Integer getRestaurantId() {
